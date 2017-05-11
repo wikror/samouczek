@@ -30,7 +30,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name="material", schema="samouczek" )
+@Table(name="material")
 // Define named queries here
 @NamedQueries ( {
   @NamedQuery ( name="MaterialEntity.countAll", query="SELECT COUNT(x) FROM MaterialEntity x" )

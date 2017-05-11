@@ -34,7 +34,7 @@ import javax.persistence.UniqueConstraint;
  */
 
 @Entity
-@Table(name="user", schema="samouczek" )
+@Table(name="user")
 // Define named queries here
 @NamedQueries ( {
   @NamedQuery ( name="UserEntity.countAll", query="SELECT COUNT(x) FROM UserEntity x" ),
@@ -77,7 +77,6 @@ public class UserEntity implements Serializable {
         name = "user_materials",
         joinColumns = @JoinColumn( name="user", referencedColumnName="ID"),
         inverseJoinColumns = @JoinColumn( name="material", referencedColumnName="ID"),
-        schema = "samouczek", 
         uniqueConstraints = @UniqueConstraint(columnNames = { "user", "material" })
     )
 	private Set<MaterialEntity> materials;
