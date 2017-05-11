@@ -1,0 +1,90 @@
+// Global variable overrides. Must be declared before importing Valo.
+
+// Defines the plaintext font size, weight and family. Font size affects general component sizing.
+$v-font-size: 16px;
+$v-font-weight: 300;
+$v-font-family: "Helvetica", sans-serif;
+
+// Defines the border used by all components.
+//$v-border: 1px solid (v-shade 0.7);
+//$v-border-radius: 4px;
+
+// Affects the color of some component elements, e.g Button, Panel title, etc
+//$v-background-color: hsl(210, 0%, 98%);
+// Affects the color of content areas, e.g  Panel and Window content, TextField input etc
+$v-app-background-color: #C7D8ED;
+
+// Affects the visual appearance of all components
+//$v-gradient: v-linear 8%;
+//$v-bevel-depth: 30%;
+//$v-shadow-opacity: 5%;
+
+// Defines colors for indicating status (focus, success, failure)
+//$v-focus-color: valo-focus-color(); // Calculates a suitable color automatically
+//$v-friendly-color: #2c9720;
+//$v-error-indicator-color: #ed473b;
+
+// For more information, see: https://vaadin.com/book/-/page/themes.valo.html
+// Example variants can be copy/pasted from https://vaadin.com/wiki/-/wiki/Main/Valo+Examples
+
+@import "../valo/valo.scss";
+
+@mixin samouczek {
+	@include valo;
+	
+	pre {
+		display: inline;
+	}
+	
+	b {
+		font-weight: bold !important;
+	}
+  
+  	.sorting-grid {
+		width: 100% !important;
+		min-height: 200px !important;
+  	}
+  	
+  	.sorting-grid-cell {
+		min-width: 60px !important;
+		min-height: 40px !important;
+		border: 2px dotted black;
+	}
+	
+	.login-panel {
+		background-color: #5D8CC9;
+		box-shadow: 6px 6px 3px #888888;
+	}
+	
+	.caption-label {
+		font-size: 16px;
+	}
+	
+	.form-centered {
+		padding-left: 35px;
+		padding-right: 35px;
+	}
+	
+	.samouczek-top, .samouczek-contentlist, .samouczek-lesson {
+		padding: 10px;
+	}
+	
+	.sorting-tile {
+		color: white;
+		font-size: 19px;
+		font-weight: bold;
+		background-color: black;
+	}
+	
+	.sorting-tile-content {
+		text-align: center;
+	}
+	
+	.code-entry {
+		width: 70%;
+	}
+	
+	.v-panel {
+		padding: 5px;
+	}
+}

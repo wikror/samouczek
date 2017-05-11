@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Telosys Database Repository --><root>
+<tableList databaseId="0" databaseName="MYSQL" databaseProductName="MySQL" generation="2014-10-25 19:53:41">
+<table catalog="samouczek" databaseType="TABLE" javaBean="Lesson" name="lesson" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="title" dbNotNull="false" dbPosition="2" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="title" javaType="java.lang.String" jdbcTypeCode="12" label="Title" maxLength="255" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="lessonid" id="LINK_FK_lessonid_I" inverseSideOf="LINK_FK_lessonid_O" javaName="listOfMaterial" javaType="java.util.List" joinTableName="" mappedBy="lesson" optional="UNDEFINED" owningSide="false" sourceTableName="lesson" targetEntity="Material" targetTableName="material" used="true"/>
+</table>
+<table catalog="samouczek" databaseType="TABLE" javaBean="Material" name="material" schema="">
+<column dbDefaultValue="" dbName="ID" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="lessonid" dbNotNull="true" dbPosition="2" dbSize="10" dbTypeName="INT" inputType="number" javaName="lessonid" javaType="java.lang.Integer" jdbcTypeCode="4" label="Lessonid" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="title" dbNotNull="true" dbPosition="3" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="title" javaType="java.lang.String" jdbcTypeCode="12" label="Title" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="type" dbNotNull="true" dbPosition="4" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="type" javaType="java.lang.String" jdbcTypeCode="12" label="Type" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="contents" dbNotNull="false" dbPosition="5" dbSize="65535" dbTypeName="TEXT" inputType="text" javaName="contents" javaType="java.lang.String" jdbcTypeCode="-1" label="Contents" longText="true" maxLength="65535" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="next" dbNotNull="false" dbPosition="6" dbSize="10" dbTypeName="INT" inputType="number" javaName="next" javaType="java.lang.Integer" jdbcTypeCode="4" label="Next" notNull="false" selected="true"/>
+<fk name="lessonid">
+<fkcol colname="lessonid" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="material" tableref="lesson" updaterule="3"/>
+</fk>
+<fk name="next_lesson">
+<fkcol colname="next" colref="ID" deferrable="7" deleterule="3" sequence="1" tablename="material" tableref="material" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="next_lesson" id="LINK_FK_next_lesson_O" inverseSideOf="" javaName="material" javaType="Material" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="material" targetEntity="Material" targetTableName="material" used="false">
+<joinColumns>
+<joinColumn insertable="false" name="next" nullable="true" referencedColumnName="ID" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="material" id="LINK_FK_material_I" inverseSideOf="LINK_FK_material_O" javaName="listOfUserMaterials" javaType="java.util.List" joinTableName="" mappedBy="material" optional="UNDEFINED" owningSide="false" sourceTableName="material" targetEntity="UserMaterials" targetTableName="user_materials" used="false"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="next_lesson" id="LINK_FK_next_lesson_I" inverseSideOf="LINK_FK_next_lesson_O" javaName="listOfMaterial" javaType="java.util.List" joinTableName="" mappedBy="material" optional="UNDEFINED" owningSide="false" sourceTableName="material" targetEntity="Material" targetTableName="material" used="false"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="lessonid" id="LINK_FK_lessonid_O" inverseSideOf="" javaName="lesson" javaType="Lesson" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="material" targetEntity="Lesson" targetTableName="lesson" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="lessonid" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="samouczek" databaseType="TABLE" javaBean="User" name="user" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="ID" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="PASSWORD" dbNotNull="false" dbPosition="2" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="password" javaType="java.lang.String" jdbcTypeCode="12" label="Password" maxLength="255" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="USERNAME" dbNotNull="false" dbPosition="3" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="username" javaType="java.lang.String" jdbcTypeCode="12" label="Username" maxLength="255" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="role" dbNotNull="false" dbPosition="4" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="role" javaType="java.lang.String" jdbcTypeCode="12" label="Role" maxLength="45" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="fullname" dbNotNull="false" dbPosition="5" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="fullname" javaType="java.lang.String" jdbcTypeCode="12" label="Fullname" maxLength="255" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="email" dbNotNull="false" dbPosition="6" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="email" javaType="java.lang.String" jdbcTypeCode="12" label="Email" maxLength="255" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="user" id="LINK_FK_user_I" inverseSideOf="LINK_FK_user_O" javaName="listOfUserMaterials" javaType="java.util.List" joinTableName="" mappedBy="user" optional="UNDEFINED" owningSide="false" sourceTableName="user" targetEntity="UserMaterials" targetTableName="user_materials" used="false"/>
+</table>
+<table catalog="samouczek" databaseType="TABLE" javaBean="UserMaterials" name="user_materials" schema="">
+<column dbDefaultValue="" dbForeignKey="true" dbName="user" dbNotNull="true" dbPosition="1" dbSize="10" dbTypeName="INT" inputType="number" javaName="user" javaType="java.lang.Integer" jdbcTypeCode="4" label="User" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="material" dbNotNull="true" dbPosition="2" dbSize="10" dbTypeName="INT" inputType="number" javaName="material" javaType="java.lang.Integer" jdbcTypeCode="4" label="Material" notNull="true" selected="true"/>
+<fk name="material">
+<fkcol colname="material" colref="ID" deferrable="7" deleterule="3" sequence="1" tablename="user_materials" tableref="material" updaterule="3"/>
+</fk>
+<fk name="user">
+<fkcol colname="user" colref="ID" deferrable="7" deleterule="3" sequence="1" tablename="user_materials" tableref="user" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="user" id="LINK_FK_user_O" inverseSideOf="" javaName="user" javaType="User" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="user_materials" targetEntity="User" targetTableName="user" used="false">
+<joinColumns>
+<joinColumn insertable="false" name="user" nullable="true" referencedColumnName="ID" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="material" id="LINK_FK_material_O" inverseSideOf="" javaName="material" javaType="Material" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="user_materials" targetEntity="Material" targetTableName="material" used="false">
+<joinColumns>
+<joinColumn insertable="false" name="material" nullable="true" referencedColumnName="ID" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+</tableList>
+</root>

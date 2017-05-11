@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databases defaultId="0" maxId="4">
+<db dialect="org.hibernate.dialect.MySQLDialect" driver="com.mysql.jdbc.Driver" id="0" isolationLevel="" name="MYSQL" poolSize="1" typeName="MYSQL" url="jdbc:mysql://localhost:3307/samouczek">
+<property name="user" value="samouczek"/>
+<property name="password" value="samouczek"/>
+<metadata catalog="" schema="TO_BE_DEFINED" table-name-pattern="%" table-types="TABLE"/>
+</db>
+</databases>

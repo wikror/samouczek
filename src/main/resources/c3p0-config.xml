@@ -1,0 +1,6 @@
+<c3p0-config> 
+	<default-config>
+		<property name="testConnectionOnCheckout">true</property>
+		<property name="testConnectionOnCheckin">true</property>
+	</default-config>
+</c3p0-config>
