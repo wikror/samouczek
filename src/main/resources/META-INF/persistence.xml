@@ -5,13 +5,13 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<properties>
 			<!-- Database configuration -->
-			<property name="hibernate.connection.driver_class"  value="com.mysql.jdbc.Driver"/>
-			<property name="hibernate.connection.url"           value="jdbc:mysql://127.0.0.1:3307/samouczek?autoReconnect=true"/>
-			<property name="hibernate.connection.username"      value="samouczek"/>
-			<property name="hibernate.connection.password"      value="samouczek"/>
-			<property name="hibernate.dialect"                  value="org.hibernate.dialect.MySQLDialect"/>
+			<property name="hibernate.connection.driver_class"  value="org.hsqldb.jdbcDriver"/>
+			<property name="hibernate.connection.url"           value="jdbc:hsqldb:file:samouczek"/>
+			<property name="hibernate.connection.username"      value="sa"/>
+			<property name="hibernate.connection.password"      value=""/>
+			<property name="hibernate.dialect"                  value="org.hibernate.dialect.HSQLDialect"/>
 			<!-- Hibernate configuration -->
-			<property name="hibernate.hbm2ddl.auto"       value="none"/>
+			<property name="hibernate.hbm2ddl.auto"       value="update"/>
 			<property name="hibernate.show_sql"           value="true"/>
 			<!-- Allow lazy loading outside transactions -->
 			<property name="hibernate.enable_lazy_load_no_trans" value="false" />			
